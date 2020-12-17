@@ -22,6 +22,7 @@ class Comment(models.Model):
     parent_obj_keys = ["post"]
     name = models.TextField()
     post = models.ForeignKey("Post", on_delete=models.CASCADE)
+    parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
 
     tags = models.ManyToManyField("Tag")
 
